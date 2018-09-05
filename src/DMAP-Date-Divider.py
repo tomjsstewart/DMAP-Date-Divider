@@ -1,12 +1,39 @@
 import pandas as pd
+import argparse, sys
 
-#Get user inputs, default options are defined
-inFile = str(input('Enter input file path: ')) or 'Data Grab for DMAP.txt'
-outFile = str(input('Enter output file path: ')) or 'DMAP OUT.txt'
-cutDate = input('Enter the cut off date: ') or 1960
-beforeSymbol = str(input('Enter symbol code for before date data: ')) or 'G'
-afterSymbol = str(input('Enter symbol code for after date data: ')) or 'A'
-bothSymbol = str(input('Enter symbol code for both date data: ')) or 'D'
+#Valid arguments
+options = list('AaJjBbKkCcLlDdMmEeNnFfOoGgPpHhQqIiRrSsTtUuVvWwYyZz9876543210*X+#$&/=?')
+
+if len(sys.argv) > 1:
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-i', '--inFile', help='Path to input file', default='Data Grab for DMAP.txt')
+    parser.add_argument('-o', '--outFile', help="Path for output file", default='DMAP OUT.txt')
+    parser.add_argument('-d', '--date', type=int, help='Cut off date', default=1960)
+    parser.add_argument('--before', choices=options, help='Symbol to display in DMAP for grid references before cut off date', default='G')
+    parser.add_argument('--after', choices=options, help='Symbol to display in DMAP for grid references after cut off date', default='A')
+    parser.add_argument('--both', choices=options, help='Symbol to display in DMAP for grid references both sides of cut off date', default='D')
+    args = parser.parse_args()
+
+    if args.inFile:
+        inFile = args.inFile
+    if args.outFile:
+        outFile = args.outFile
+    if args.date:
+        cutDate = args.date
+    if args.before:
+        beforeSymbol = args.before
+    if args.after:
+        afterSymbol = args.after
+    if args.both:
+        bothSymbol = args.both
+else:
+    #Get user inputs, default options are defined
+    inFile = str(input('Enter input file path: ')) or 'Data Grab for DMAP.txt'
+    outFile = str(input('Enter output file path: ')) or 'DMAP OUT.txt'
+    cutDate = input('Enter the cut off date: ') or 1960
+    beforeSymbol = str(input('Enter symbol code for before date data: ')) or 'G'
+    afterSymbol = str(input('Enter symbol code for after date data: ')) or 'A'
+    bothSymbol = str(input('Enter symbol code for both date data: ')) or 'D'
 
 
 #Takes row as input and returns Grid reference with correct DMAP symbol appended

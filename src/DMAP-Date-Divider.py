@@ -105,3 +105,15 @@ df.reset_index(drop=True, inplace=True)
 #Add DMAP symbols to grid references
 df['Gr'] = df.apply(f, axis=1)
 #print(df.head())
+
+#Generate an ordered list of species
+species = sorted(list(set(df['Sp'].tolist())))
+
+#Write data to file
+with open(outFile, 'w') as file:
+    for sp in species:
+        GRlist = df.loc[df['Sp'] == sp, 'Gr'].tolist()
+        file.write(' ' + str(int(sp)) + '\n')
+        for GR in GRlist:
+            file.write(str(GR) + '\n')
+        file.write('-1\n')

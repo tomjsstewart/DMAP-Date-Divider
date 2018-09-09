@@ -30,7 +30,7 @@ else:
     #Get user inputs, default options are defined
     inFile = str(input('Enter input file path: ')) or 'Data Grab for DMAP.txt'
     outFile = str(input('Enter output file path: ')) or 'DMAP OUT.txt'
-    cutDate = input('Enter the cut off date: ') or 1960
+    cutDate = input('Enter the cut off date (Included in before): ') or 1960
     beforeSymbol = str(input('Enter symbol code for before date data: ')) or 'G'
     afterSymbol = str(input('Enter symbol code for after date data: ')) or 'A'
     bothSymbol = str(input('Enter symbol code for both date data: ')) or 'D'

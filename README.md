@@ -12,7 +12,7 @@ DMAP-Date-Divider is designed to be either run from the command line or within a
 ### Data Format
 Data must be stored in a text (.txt) file, in a comma separated format, with a new line for each row.
 Data **MUST** be sorted by both Species code **and** Grid Reference, this is not done by the program.
-Data file should not have headings
+Data file should not have headings.
 
 Example File:
 ```
@@ -39,7 +39,7 @@ NN5114 A
 ```
 ### Running From Command Line/Shell
 Navigate to src directory.
-Run program with
+Run program with:
 ```
 python DMAP-Date-Divider.py
 ```
@@ -61,12 +61,16 @@ There are six command line arguments available:
   --after 				Symbol to display in DMAP for grid references after cut off date
   --both 				Symbol to display in DMAP for grid references both sides of cut off date
 ```
-Leave an argument out for default values.
+All arguments are optional, do not use argument for default value.
 For example: a input file called IN.txt, output file called OUT.txt, 1960 cut off date, G D A for before, both and after respectively.
 ```
  python DMAP-Date-Divider.py --inFile="IN.txt" --outFile="OUT.txt" --date=1960 --before=G --after=A --both=D
  ```
- These are also the default options.
+These are also the default options.
+ ```
+python DMAP-Date-Divider.py
+ ```
+Would achieve the same results in this case.
 ### Manual Execution
 1. Open DMAP-Date-Divider.py in preferred environment.
 2. Run DMAP-Date-Divider.py

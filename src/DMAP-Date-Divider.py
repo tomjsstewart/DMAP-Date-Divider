@@ -6,8 +6,8 @@ options = list('AaJjBbKkCcLlDdMmEeNnFfOoGgPpHhQqIiRrSsTtUuVvWwYyZz9876543210*X+#
 
 if len(sys.argv) > 1:
     parser = argparse.ArgumentParser()
-    parser.add_argument('-i', '--inFile', help='Path to input file', default='Data Grab for DMAP.txt')
-    parser.add_argument('-o', '--outFile', help="Path for output file", default='DMAP OUT.txt')
+    parser.add_argument('-i', '--inFile', help='Path to input file', default='IN.txt')
+    parser.add_argument('-o', '--outFile', help="Path for output file", default='OUT.txt')
     parser.add_argument('-d', '--date', type=int, help='Cut off date', default=1960)
     parser.add_argument('--before', choices=options, help='Symbol to display in DMAP for grid references before cut off date', default='G')
     parser.add_argument('--after', choices=options, help='Symbol to display in DMAP for grid references after cut off date', default='A')
